@@ -2,4 +2,6 @@
 <odoo>
   <menuitem id="menu_hospital_main" name="Hospital" sequence="0" web_icon="hospital,static\description\icon.png" />
   <menuitem id="menu_patient_main" name="Patient Details" sequence="0" parent="menu_hospital_main" />
+  <menuitem id="menu_appointment_main" name="Appointment Details" sequence="20" parent="menu_hospital_main" />
+
 </odoo>
