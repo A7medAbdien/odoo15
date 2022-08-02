@@ -19,8 +19,13 @@
           <group>
             <group>
               <field name="patient_id" />
+              <field name="gender" />
+              <field name="booking_date" />
             </group>
-            <group></group>
+            <group>
+              <field name="appointment_time" />
+
+            </group>
           </group>
         </sheet>
 
