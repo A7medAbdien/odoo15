@@ -36,3 +36,10 @@ class HospitalAppointment(models.Model):
 
     def action_test(self):
         print('test!!!!!!!!!!!!!!!!!!!!')
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Printed',
+                'type': 'rainbow_man',
+            }
+        }
