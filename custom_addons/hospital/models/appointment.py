@@ -17,13 +17,6 @@ class HospitalAppointment(models.Model):
         string="Booking Date", default=fields.Date.context_today)
     gender = fields.Selection(related="patient_id.gender", readonly=True)
     ref = fields.Char(string="Recreance")
-    rec_computed = fields.Char(
-        compute='_compute_rec_computed')
-
-    @api.depends('patient_id')
-    def _compute_rec_computed(self):
-        for record in self:
-            record.rec_computed = record.ref + ' Appointment'
 
     @ api.onchange('patient_id')
     def _onchange_patient_id(self):

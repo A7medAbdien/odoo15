@@ -5,7 +5,11 @@
     <field name="name">hospital appointment</field>
     <field name="model">hospital.appointment</field>
     <field name="arch" type="xml">
-      <tree></tree>
+      <tree>
+        <field name="patient_id" />
+        <field name="appointment_time" />
+        <field name="ref" />
+      </tree>
     </field>
   </record>
 
