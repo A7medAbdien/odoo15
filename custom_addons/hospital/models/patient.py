@@ -17,6 +17,8 @@ class HospitalPatient(models.Model):
         [('male', 'Male'), ('female', 'Female')], string="Gender", tracking=True)
     name = fields.Char(string="Name", tracking=True)
     ref = fields.Char(string="Recreance")
+    appointment_id = fields.Many2one(
+        'hospital.appointment', string='Appointment')
 
     @api.depends('dob')
     def _compute_age(self):

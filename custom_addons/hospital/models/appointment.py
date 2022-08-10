@@ -8,7 +8,7 @@ class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Hospital Appointment"
-    _rec_name = 'rec_computed'
+    _rec_name = 'ref'
 
     patient_id = fields.Many2one('hospital.patient', 'Patient')
     appointment_time = fields.Datetime(
@@ -17,7 +17,6 @@ class HospitalAppointment(models.Model):
         string="Booking Date", default=fields.Date.context_today)
     gender = fields.Selection(related="patient_id.gender", readonly=True)
     ref = fields.Char(string="Recreance")
-
     rec_computed = fields.Char(
         compute='_compute_rec_computed')
 

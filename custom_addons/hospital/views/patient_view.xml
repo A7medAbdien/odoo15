@@ -30,6 +30,7 @@
             <group>
               <field name="gender" />
               <field name="ref" />
+              <field name="appointment_id" />
               <field name="active" invisible="1" />
             </group>
           </group>
