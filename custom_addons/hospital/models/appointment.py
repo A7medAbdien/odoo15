@@ -17,6 +17,11 @@ class HospitalAppointment(models.Model):
         string="Booking Date", default=fields.Date.context_today)
     gender = fields.Selection(related="patient_id.gender", readonly=True)
     ref = fields.Char(string="Recreance")
+    priority = fields.Selection([
+        ('0', 'Normal'),
+        ('1', 'Low'),
+        ('2', 'High'),
+        ('3', 'Very High')], string='Priority')
 
     @ api.onchange('patient_id')
     def _onchange_patient_id(self):

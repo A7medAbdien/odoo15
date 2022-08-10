@@ -34,6 +34,17 @@
               <field name="active" invisible="1" />
             </group>
           </group>
+
+
+          <notebook>
+
+            <page string="Prescription">
+              <field name='prescription' placeholder='Enter prescription'></field>
+            </page>
+
+            <page string='test'></page>
+          </notebook>
+
         </sheet>
 
         <div class="oe_chatter">

@@ -22,6 +22,11 @@
         <sheet>
           <group>
             <group>
+              <div>
+                <h3>
+                  <field name='priority' widget='priority' />
+                </h3>
+              </div>
               <field name="patient_id" />
               <field name="gender" />
               <field name="booking_date" />
