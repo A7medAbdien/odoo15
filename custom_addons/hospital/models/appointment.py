@@ -1,5 +1,7 @@
-import string
-from tokenize import String
+# from email.policy import default
+# import string
+# from tokenize import String
+# from typing_extensions import Required
 from odoo import models, fields, api
 
 
@@ -22,7 +24,12 @@ class HospitalAppointment(models.Model):
         ('1', 'Low'),
         ('2', 'High'),
         ('3', 'Very High')], string='Priority')
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('in_consultation', 'In Consultation'),
+        ('done', 'Done'),
+        ('canceled', 'Canceled')], string='Status', required=True, default='draft')
 
-    @ api.onchange('patient_id')
+    @api.onchange('patient_id')
     def _onchange_patient_id(self):
         self.ref = self.patient_id.ref

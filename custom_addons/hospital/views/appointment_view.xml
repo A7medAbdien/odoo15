@@ -19,14 +19,17 @@
     <field name="model">hospital.appointment</field>
     <field name="arch" type="xml">
       <form>
+        <header>
+          <field name="state" widget="statusbar" statusbar_visible="draft,in_consultation,done" options="{'clickable': '1'}" nolable='1' />
+        </header>
         <sheet>
+          <div>
+            <h3>
+              <field name='priority' widget='priority' />
+            </h3>
+          </div>
           <group>
             <group>
-              <div>
-                <h3>
-                  <field name='priority' widget='priority' />
-                </h3>
-              </div>
               <field name="patient_id" />
               <field name="gender" />
               <field name="booking_date" />
