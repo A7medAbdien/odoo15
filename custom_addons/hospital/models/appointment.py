@@ -1,7 +1,3 @@
-# from email.policy import default
-# import string
-# from tokenize import String
-# from typing_extensions import Required
 from odoo import models, fields, api
 
 
