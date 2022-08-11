@@ -39,7 +39,7 @@
           <notebook>
 
             <page string="Prescription">
-              <field name='prescription' placeholder='Enter prescription'></field>
+              <field name='prescription' placeholder='Enter prescription' options="{'collaborative': true, 'resizable': true}" />
             </page>
 
             <page string='test'></page>
