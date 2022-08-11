@@ -5,10 +5,13 @@
     <field name="name">hospital appointment</field>
     <field name="model">hospital.appointment</field>
     <field name="arch" type="xml">
-      <tree>
+      <tree decoration-success="state =='done'" decoration-info="state =='draft'" decoration-danger="state=='in_consultation'">
         <field name="patient_id" />
-        <field name="appointment_time" />
-        <field name="ref" />
+        <field name="appointment_time" optional="show" />
+        <field name="ref" optional="hide" />
+        <field name='priority' widget='priority' optional="hide" />
+        <field name="doctor_id" widget='many2one_avatar_user' optional='show' />
+        <field name="activity_ids" widget="list_activity" />
         <field name="state" widget='badge' decoration-success="state == 'done'" decoration-info="state =='draft'" decoration-danger="state=='in_consultation'" />
       </tree>
     </field>
@@ -38,7 +41,7 @@
             <group>
               <field name="appointment_time" />
               <field name="ref" />
-
+              <field name="doctor_id" widget='many2one_avatar' />
               <button name="action_test" string="Object Button" type="object" class="oe_highlight" confirm='confirm massage' />
               <button name="%(hospital.action_hospital_patient)d" string="Action Button" type="action" class="oe_highlight" help='this will redirect u to patient' />
 
