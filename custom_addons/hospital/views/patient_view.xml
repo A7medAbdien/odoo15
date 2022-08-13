@@ -35,16 +35,6 @@
             </group>
           </group>
 
-
-          <notebook>
-
-            <page string="Prescription">
-              <field name='prescription' placeholder='Enter prescription' options="{'collaborative': true, 'resizable': true}" />
-            </page>
-
-            <page string='test'></page>
-          </notebook>
-
         </sheet>
 
         <div class="oe_chatter">

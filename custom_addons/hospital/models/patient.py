@@ -20,8 +20,6 @@ class HospitalPatient(models.Model):
     ref = fields.Char(string="Recreance")
     appointment_id = fields.Many2one(
         'hospital.appointment', string='Appointment')
-    prescription = fields.Html(
-        string='Prescription')
 
     @api.depends('dob')
     def _compute_age(self):

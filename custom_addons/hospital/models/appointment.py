@@ -16,6 +16,8 @@ class HospitalAppointment(models.Model):
         string="Booking Date", default=fields.Date.context_today)
     gender = fields.Selection(related="patient_id.gender", readonly=True)
     ref = fields.Char(string="Recreance")
+    prescription = fields.Html(
+        string='Prescription')
     priority = fields.Selection([
         ('0', 'Normal'),
         ('1', 'Low'),
@@ -27,6 +29,8 @@ class HospitalAppointment(models.Model):
         ('done', 'Done'),
         ('canceled', 'Canceled')], string='Status', required=True, default='draft')
     doctor_id = fields.Many2one('res.users', string='Doctor')
+    pharmacy_lines_id = fields.One2many(
+        'appointment.pharmacy.lines', 'appointment_id', string='Pharmacy Lines')
 
     @api.onchange('patient_id')
     def _onchange_patient_id(self):
@@ -57,3 +61,14 @@ class HospitalAppointment(models.Model):
     def action_draft(self):
         for rec in self:
             rec.state = 'draft'
+
+
+class AppointmentPharmacyLines(models.Model):
+    _name = 'appointment.pharmacy.lines'
+    _description = 'Appointment Pharmacy Lines'
+
+    product_id = fields.Many2one('product.product')
+    price_unit = fields.Float(string='Price')
+    qty = fields.Integer(string='Quantity')
+    appointment_id = fields.Many2one(
+        'hospital.appointment', string='Appointment')

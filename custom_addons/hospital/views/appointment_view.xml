@@ -24,10 +24,10 @@
     <field name="arch" type="xml">
       <form>
         <header>
-          <button type="object" name="action_in_consultation" class="oe_highlight" string='In Consultation' states='draft' />
-          <button type='object' name="action_done" string='Done' class="oe_highlight" states='in_consultation' />
-          <button type='object' name="action_cancel" string='Cancel' states='in_consultation,draft' />
-          <button type='object' name="action_draft" string='Return' states='canceled,done' />
+          <button type="object" data-hotkey='v' name="action_in_consultation" class="oe_highlight" string='In Consultation' states='draft' />
+          <button type='object' data-hotkey='b' name="action_done" string='Done' class="oe_highlight" states='in_consultation' />
+          <button type='object' data-hotkey='n' name="action_cancel" string='Cancel' states='in_consultation,draft' />
+          <button type='object' data-hotkey='m' name="action_draft" string='Return' states='canceled,done' />
 
           <field name="state" widget="statusbar" statusbar_visible="draft,in_consultation,done" options="{'clickable': '1'}" nolable='1' />
         </header>
@@ -52,6 +52,28 @@
 
             </group>
           </group>
+
+          <notebook>
+            <page string="Prescription">
+              <field name='prescription' placeholder='Enter prescription' options="{'collaborative': true, 'resizable': true}" />
+            </page>
+            <page string='Pharmacy'>
+              <field name="pharmacy_lines_id">
+                <tree>
+                  <field name="product_id" />
+                  <field name="price_unit" />
+                  <field name="qty" />
+                </tree>
+                <form>
+                  <group>
+                    <field name="product_id" />
+                    <field name="price_unit" />
+                    <field name="qty" />
+                  </group>
+                </form>
+              </field>
+            </page>
+          </notebook>
         </sheet>
 
         <div class="oe_chatter">
