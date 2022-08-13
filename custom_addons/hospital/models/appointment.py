@@ -1,3 +1,4 @@
+from inspect import trace
 from odoo import models, fields, api
 
 
@@ -19,7 +20,7 @@ class HospitalAppointment(models.Model):
         ('0', 'Normal'),
         ('1', 'Low'),
         ('2', 'High'),
-        ('3', 'Very High')], string='Priority')
+        ('3', 'Very High')], string='Priority', trace=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('in_consultation', 'In Consultation'),
@@ -40,3 +41,19 @@ class HospitalAppointment(models.Model):
                 'type': 'rainbow_man',
             }
         }
+
+    def action_in_consultation(self):
+        for rec in self:
+            rec.state = 'in_consultation'
+
+    def action_done(self):
+        for rec in self:
+            rec.state = 'done'
+
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'cancel'
+
+    def action_draft(self):
+        for rec in self:
+            rec.state = 'draft'

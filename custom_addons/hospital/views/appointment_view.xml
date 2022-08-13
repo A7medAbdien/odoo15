@@ -5,7 +5,7 @@
     <field name="name">hospital appointment</field>
     <field name="model">hospital.appointment</field>
     <field name="arch" type="xml">
-      <tree decoration-success="state =='done'" decoration-info="state =='draft'" decoration-danger="state=='in_consultation'" sample='1'>
+      <tree decoration-success="state =='done'" decoration-info="state =='draft'" decoration-danger="state=='in_consultation'" sample='1' multi_edit='1'>
         <field name="patient_id" />
         <field name="appointment_time" optional="show" />
         <field name="ref" optional="hide" />
@@ -24,6 +24,11 @@
     <field name="arch" type="xml">
       <form>
         <header>
+          <button type="object" name="action_in_consultation" class="oe_highlight" string='In Consultation' states='draft' />
+          <button type='object' name="action_done" string='Done' class="oe_highlight" states='in_consultation' />
+          <button type='object' name="action_cancel" string='Cancel' states='in_consultation,draft' />
+          <button type='object' name="action_draft" string='Return' states='canceled,done' />
+
           <field name="state" widget="statusbar" statusbar_visible="draft,in_consultation,done" options="{'clickable': '1'}" nolable='1' />
         </header>
         <sheet>
