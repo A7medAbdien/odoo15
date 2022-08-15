@@ -1,5 +1,4 @@
 from datetime import date
-from logging import PlaceHolder
 from odoo import api, fields, models
 
 
@@ -21,6 +20,10 @@ class HospitalPatient(models.Model):
     appointment_id = fields.Many2one(
         'hospital.appointment', string='Appointment')
     image = fields.Image(string='Image')
+    tag_ids = fields.Many2many(
+        string='Tag',
+        comodel_name='patient.tag'
+    )
 
     @api.depends('dob')
     def _compute_age(self):

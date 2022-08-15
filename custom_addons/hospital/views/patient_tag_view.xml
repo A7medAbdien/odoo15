@@ -6,6 +6,9 @@
     <field name="arch" type="xml">
       <tree sample='1'>
         <field name="name" string="Tag Name" />
+        <field name="color" widget="color" />
+        <field name="color2" widget="color_picker" groups="base.group_no_one" />
+        <field name="active" widget="boolean_toggle" />
       </tree>
     </field>
   </record>
@@ -22,6 +25,8 @@
               <field name="name" />
             </group>
             <group>
+              <field name="color" widget="color_picker" />
+              <field name="color2" widget="color" groups="base.group_no_one" />
               <field name="active" widget="boolean_toggle" />
             </group>
           </group>
