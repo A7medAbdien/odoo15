@@ -14,7 +14,7 @@
         </group>
         <footer>
           <button string="Cancel Appointment" type="object" class="btn-primary" name="action_cancel" data-hotkey="q" />
-          <button string="Discard" spacial="cancel" class="btn-secondary" data-hotkey="z" />
+          <button string="Discard" special="cancel" class="btn-secondary" data-hotkey="z" />
         </footer>
       </form>
     </field>

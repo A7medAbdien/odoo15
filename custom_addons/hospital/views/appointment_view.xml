@@ -44,6 +44,9 @@
         <header>
           <button type="object" data-hotkey='v' name="action_in_consultation" class="oe_highlight" string='In Consultation' states='draft' />
           <button type='object' data-hotkey='b' name="action_done" string='Done' class="oe_highlight" states='in_consultation' />
+          <!-- button type action -->
+          <!-- <button type='action' data-hotkey='n' name="%(action_cancel_appointment_wizard)d" string='Cancel' states='in_consultation,draft' /> -->
+          <!-- button type object -->
           <button type='object' data-hotkey='n' name="action_cancel" string='Cancel' states='in_consultation,draft' />
           <button type='object' data-hotkey='m' name="action_draft" string='Return' states='canceled,done' />
 
