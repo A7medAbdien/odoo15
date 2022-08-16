@@ -10,5 +10,9 @@ class CancelAppointmentWizard(models.TransientModel):
         comodel_name='hospital.appointment'
     )
 
+    reason = fields.Text(
+        string='Reason',
+    )
+
     def action_cancel(self):
         return
