@@ -25,6 +25,12 @@ class HospitalPatient(models.Model):
         comodel_name='patient.tag'
     )
 
+    @api.model
+    def create(self, vals_list):
+        print("Odoo Metes are the best", vals_list)
+        vals_list['ref'] = 'REFERENCE'
+        return super(HospitalPatient, self).create(vals_list)
+
     @api.depends('dob')
     def _compute_age(self):
         print("self................", self)
