@@ -27,9 +27,18 @@ class HospitalPatient(models.Model):
 
     @api.model
     def create(self, vals_list):
-        print("Odoo Metes are the best", vals_list)
-        vals_list['ref'] = 'REFERENCE'
+        print("Odoo Metes are the best",
+              self.env['ir.sequence'].next_by_code('hospital.patient'))
+        vals_list['ref'] = self.env['ir.sequence'].next_by_code(
+            'hospital.patient')
         return super(HospitalPatient, self).create(vals_list)
+
+    def write(self, vals):
+        print('write trigger when we edit', vals)
+        if not self.ref and not vals.get('ref'):
+            self.ref = self.env['ir.sequence'].next_by_code(
+                'hospital.patient')
+        return super(HospitalPatient, self).write(vals)
 
     @api.depends('dob')
     def _compute_age(self):
