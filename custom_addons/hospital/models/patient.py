@@ -49,3 +49,11 @@ class HospitalPatient(models.Model):
                 rec.age = today.year - rec.dob.year
             else:
                 rec.age = 1
+
+    def name_get(self):
+        # result = []
+        # for record in self:
+        #     name = '[' + record.ref + '] ' + record.name
+        #     result.append((record.id, name))
+        # return result
+        return [(record.id, "[%s] %s" % (record.ref, record.name)) for record in self]
